@@ -1,0 +1,191 @@
+---
+title: Getting Started with Fix-it-Jamaica
+description: Set up your account and submit your first issue report quickly to start contributing to community improvements.
+---
+
+## Prerequisites
+
+<Callout kind="info">
+
+Before starting, ensure you have:
+- A modern web browser like Chrome or Firefox
+- A valid email address for account verification
+- Access to https://dashboard.example.com (the main platform)
+
+</Callout>
+
+## Create Your Account
+
+Follow these steps to sign up quickly.
+
+<Steps>
+  <Step title="Visit Signup Page" icon="user-plus">
+    Navigate to https://dashboard.example.com/signup.
+  </Step>
+  <Step title="Fill in Details" icon="edit-3">
+    Enter your email, full name, and phone number. Create a strong password.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for the verification link and click it to activate your account.
+  </Step>
+</Steps>
+
+## Log In and Access Dashboard
+
+Once verified, log in to view your dashboard.
+
+<Steps>
+  <Step title="Go to Login" icon="log-in">
+    Head to https://dashboard.example.com/login.
+  </Step>
+  <Step title="Enter Credentials" icon="key">
+    Input your email and password, then submit.
+  </Step>
+  <Step title="Explore Dashboard" icon="layout-dashboard">
+    You'll see sections for reporting issues, tracking reports, and community updates.
+  </Step>
+</Steps>
+
+## Submit Your First Issue Report
+
+Report a sample issue like a pothole in Kingston. Choose your preferred method.
+
+<Tabs>
+  <Tab title="Web Dashboard" icon="globe">
+    <Steps>
+      <Step title="Select Report Type" icon="plus">
+        Click "New Issue" on the dashboard.
+      </Step>
+      <Step title="Add Details" icon="map-pin">
+        Enter title: "Pothole on Main Street", description: "Large pothole causing traffic issues", location: "Kingston, Jamaica", and upload photos.
+      </Step>
+      <Step title="Submit" icon="send">
+        Review and submit. You'll get a confirmation with a report ID.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="API" icon="code">
+    Use the API to submit programmatically. Replace `YOUR_API_KEY` with your key from dashboard settings.
+
+    <Request tabs="cURL,JavaScript,Python">
+    <Tab title="cURL">
+      ```bash
+      curl -X POST https://api.example.com/v1/issues \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "title": "Pothole on Main Street",
+          "description": "Large pothole causing traffic issues",
+          "location": "Kingston, Jamaica",
+          "category": "roads"
+        }'
+      ```
+    </Tab>
+    <Tab title="JavaScript">
+      ```javascript
+      const response = await fetch('https://api.example.com/v1/issues', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer YOUR_API_KEY',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          title: 'Pothole on Main Street',
+          description: 'Large pothole causing traffic issues',
+          location: 'Kingston, Jamaica',
+          category: 'roads'
+        })
+      });
+      const data = await response.json();
+      console.log(data);
+      ```
+    </Tab>
+    <Tab title="Python">
+      ```python
+      import requests
+
+      headers = {
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+      }
+      data = {
+        'title': 'Pothole on Main Street',
+        'description': 'Large pothole causing traffic issues',
+        'location': 'Kingston, Jamaica',
+        'category': 'roads'
+      }
+      response = requests.post('https://api.example.com/v1/issues', json=data, headers=headers)
+      print(response.json())
+      ```
+    </Tab>
+    </Request>
+
+    <Response tabs="201,400">
+    ```json
+    {
+      "id": "iss_123abc",
+      "title": "Pothole on Main Street",
+      "status": "submitted",
+      "created_at": "2024-01-15T10:30:00Z"
+    }
+    ```
+    ```json
+    {
+      "error": "Invalid API key"
+    }
+    ```
+    </Response>
+  </Tab>
+</Tabs>
+
+<ParamField path="title" param-type="string" required="true">
+  Brief summary of the issue.
+</ParamField>
+
+<ParamField path="description" param-type="string" required="true">
+  Detailed problem description.
+</ParamField>
+
+<ParamField path="location" param-type="string" required="true">
+  Exact location in Jamaica.
+</ParamField>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token from dashboard.
+</ParamField>
+
+## View and Confirm Report Status
+
+Check your submission status.
+
+<Steps>
+  <Step title="Go to Reports" icon="list">
+    On the dashboard, click "My Reports".
+  </Step>
+  <Step title="Find Your Issue" icon="search">
+    Locate the report by ID (e.g., `iss_123abc`) or title.
+  </Step>
+  <Step title="Track Progress" icon="eye">
+    View status: submitted, in review, assigned, resolved. Add updates if needed.
+  </Step>
+</Steps>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Report More Issues" icon="plus-circle" href="/quickstart#submit-your-first-issue-report">
+    Continue improving your community.
+  </Card>
+  <Card title="Community Guidelines" icon="users" href="#prerequisites">
+    Learn collaboration best practices.
+  </Card>
+  <Card title="Advanced API Usage" icon="code" href="https://docs.example.com/authentication">
+    Integrate with your apps.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+
+Start small—your first report helps build momentum. Check back regularly for updates from local authorities.
+
+</Callout>

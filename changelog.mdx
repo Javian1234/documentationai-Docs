@@ -1,0 +1,133 @@
+---
+title: Changelog
+description: Review the version history of Fix-it-Jamaica, including recent updates, new features, and fixes.
+---
+
+## Overview
+
+Fix-it-Jamaica evolves rapidly to better serve Jamaican communities in reporting and resolving infrastructure issues. You can track changes here, from new reporting tools to performance enhancements.
+
+<Callout kind="info">
+  Subscribe to our newsletter or follow us on social media to get notified of major releases.
+</Callout>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added photo upload for issue reports with automatic geotagging for precise location mapping.
+- Introduced real-time notifications for issue status updates via email and push alerts.
+- Community voting system lets users prioritize issues based on local needs.
+
+## Improvements
+
+- Enhanced mobile responsiveness for better field reporting on smartphones.
+- Optimized map loading times by `>40%` using improved caching.
+
+## Bug Fixes
+
+- Fixed issue tracking sync delays during high-traffic periods.
+- Resolved duplicate report submissions in low-connectivity areas.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Dashboard analytics for users to view resolved issues in their parish.
+- Integration with Jamaica Public Service API for faster utility outage reports.
+
+## Improvements
+
+- Search functionality now supports Patois keywords for broader accessibility.
+
+## Bug Fixes
+
+- Corrected map pin clustering errors on zoom levels.
+- Patched validation for required fields in report forms.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Updated API endpoints: `/reports` now requires `Authorization` header.
+
+## New Features
+
+- Parish-based filtering for issues to focus on local problems.
+- Admin panel for authorities to claim and update reports.
+
+## Bug Fixes
+
+- Fixed login session expiration during report submission.
+- Improved error handling for invalid image uploads.
+
+<CodeGroup tabs="JavaScript,cURL">
+````javascript
+// Example: Updated API request with auth header
+const response = await fetch('https://api.example.com/reports', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${YOUR_TOKEN}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ title: 'Pothole on Main Road', location: 'Kingston' })
+});
+````
+````bash
+curl -X POST https://api.example.com/reports \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Pothole on Main Road", "location": "Kingston"}'
+````
+</CodeGroup>
+
+</Update>
+
+## Upcoming Changes
+
+Review our roadmap for features coming soon. These previews help you plan integrations.
+
+<Columns cols={3}>
+
+<Card title="v1.4.0 - AI Triage" icon="zap" href="#">
+
+  AI-powered categorization of reports to route potholes, lighting issues, and more automatically.
+
+</Card>
+
+<Card title="v2.0.0 - Webhooks" icon="github" href="#">
+
+  Real-time webhooks for third-party apps to receive issue updates.
+
+</Card>
+
+<Card title="Mobile App" icon="smartphone" href="/quickstart">
+
+  Native iOS and Android apps for offline reporting.
+
+</Card>
+
+</Columns>
+
+<Expandable title="Detailed Roadmap" default-open="false">
+
+  Explore the full product roadmap:
+
+  | Milestone | Features | Timeline |
+  |-----------|----------|----------|
+  | Q4 2024  | Webhooks, AI triage | December |
+  | Q1 2025  | Mobile apps, partnerships | March |
+
+</Expandable>
+
+<Callout kind="tip">
+
+  Found a bug? Report it via the platform at https://fixitjamaica.com/report.
+
+</Callout>

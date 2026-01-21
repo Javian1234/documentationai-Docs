@@ -1,0 +1,104 @@
+---
+title: Introduction to Fix-it-Jamaica
+description: Fix-it-Jamaica is a community-driven platform that empowers Jamaicans to report, track, and resolve infrastructure issues, fostering collaboration for better community development.
+---
+
+## Overview
+
+Fix-it-Jamaica empowers you to report potholes, broken streetlights, and other infrastructure issues in your community. By submitting reports with photos and locations, you help local authorities and volunteers prioritize and fix problems faster. The platform tracks progress in real-time, building transparency and collective action for a better Jamaica.
+
+You can start reporting issues immediately via the web app at `https://fix-it-jamaica.com` or mobile app. No technical expertise required—just describe the problem, add evidence, and watch it get resolved.
+
+<Callout kind="tip">
+  New to the platform? Focus on clear photos and precise locations for faster resolutions.
+</Callout>
+
+## Key Features
+
+Discover the core capabilities that make reporting and resolution seamless.
+
+<Columns cols={3}>
+  <Card title="Report Issues" icon="alert-triangle" href="#quickstart">
+    Submit detailed reports with photos, GPS pins, and descriptions. Categorize by type like roads, water, or electricity.
+  </Card>
+  <Card title="Track Progress" icon="trending-up" href="/quickstart">
+    Monitor status updates from assignment to completion. Get notifications on your reports.
+  </Card>
+  <Card title="Collaborate" icon="users" href="/authentication">
+    Vote on issues, comment, and volunteer. Connect with neighbors and officials.
+  </Card>
+</Columns>
+
+## Benefits for You and Your Community
+
+Using Fix-it-Jamaica transforms frustration into action. You gain a voice in local improvements, reducing response times from weeks to days. Communities see measurable progress—fewer unreported hazards mean safer streets and better services.
+
+For individuals, it's empowerment: your report directly impacts your neighborhood. Authorities benefit from prioritized data, volunteers from clear task lists. Together, Jamaica gets fixed, one issue at a time.
+
+## Quick Start: Report Your First Issue
+
+Get up and running in minutes.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create a free account at `https://fix-it-jamaica.com/signup`. Use email or social login.
+  </Step>
+  <Step title="Pin Location" icon="map-pin">
+    Use the map to mark the exact spot. Add photos and select category like "Pothole".
+  </Step>
+  <Step title="Submit Report" icon="send">
+    Describe the issue and submit. You'll get a unique ID to track it.
+  </Step>
+</Steps>
+
+## Integrate via API
+
+For developers, report programmatically.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/issues', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${YOUR_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: 'Pothole on Main Street',
+      description: 'Large pothole causing traffic issues.',
+      latitude: 18.1096,
+      longitude: -77.2975,
+      category: 'roads'
+    })
+  });
+  const issue = await response.json();
+  console.log(issue.id);
+  ```
+  ```python
+  import requests
+
+  headers = {
+      'Authorization': f'Bearer {YOUR_API_KEY}',
+      'Content-Type': 'application/json'
+  }
+  data = {
+      'title': 'Broken Streetlight',
+      'description': 'Light out at night, safety hazard.',
+      'latitude': 18.1096,
+      'longitude': -77.2975,
+      'category': 'electricity'
+  }
+  response = requests.post('https://api.example.com/v1/issues', json=data, headers=headers)
+  print(response.json()['id'])
+  ```
+</CodeGroup>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="book-open" href="/quickstart">
+    Detailed steps to report and track.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your account and API access.
+  </Card>
+</Columns>
+
+Ready to improve your community? Start reporting today.
